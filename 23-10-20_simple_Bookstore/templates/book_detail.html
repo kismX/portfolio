@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="detail-view">
+        <h1>{{ book }}</h1>
+        {{ book.description }}
+
+        <div class="detail-menu">
+            <a href="{% url 'book_delete' book.pk %}">Delete Book</a>
+            <a href="{% url 'book_edit' book.pk %}">Edit Book</a>
+        </div>
+    </div>
+{% endblock content %}

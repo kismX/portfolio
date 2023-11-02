@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for post in post_list %}
+
+<div class="post-entry">
+    <!--  die folgende zeile macht genau das, was die andere in <h2> macht.. nur dass die nicht auskommentierte zeile die praxis ist, dei man maht. get_absolute_url jaben wir in .models definiert
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2> -->
+    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    <p>{{ post.body }}</p>
+</div>
+
+{% endfor %}
+
+{% endblock content %}

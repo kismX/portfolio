@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <title>Simple Bookstore</title>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'book_list' %}">All Books</a>
+        <a href="{% url 'book_create' %}">Add Books</a>
+        <a href="{% url 'signup' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+    
+
+    </nav>
+
+
+    <!-- start new html-->
+    <div>
+        {% if user.is_authenticated %}
+            <p>You are logged in</p>
+            <p>Hi {{ user }}</p>
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+        {% else %}
+        <P>You are not logged in</P>
+        <a href="{% url 'login' %}">Log In </a>
+        <a href="{% url 'signup' %}">| Sign Up</a>
+        {% endif %} 
+    </div>
+    <!-- end new html-->
+
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
